@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as JuniorRouteImport } from './routes/junior'
+import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as YoungRouteImport } from './routes/young'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JuniorRoute = JuniorRouteImport.update({
+  id: '/junior',
+  path: '/junior',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramsRoute = ProgramsRouteImport.update({
+  id: '/programs',
+  path: '/programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const YoungRoute = YoungRouteImport.update({
+  id: '/young',
+  path: '/young',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/junior': typeof JuniorRoute
+  '/programs': typeof ProgramsRoute
+  '/young': typeof YoungRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/junior': typeof JuniorRoute
+  '/programs': typeof ProgramsRoute
+  '/young': typeof YoungRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/junior': typeof JuniorRoute
+  '/programs': typeof ProgramsRoute
+  '/young': typeof YoungRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/about' | '/junior' | '/programs' | '/young'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/about' | '/junior' | '/programs' | '/young'
+  id: '__root__' | '/' | '/about' | '/junior' | '/programs' | '/young'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  JuniorRoute: typeof JuniorRoute
+  ProgramsRoute: typeof ProgramsRoute
+  YoungRoute: typeof YoungRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/junior': {
+      id: '/junior'
+      path: '/junior'
+      fullPath: '/junior'
+      preLoaderRoute: typeof JuniorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/programs': {
+      id: '/programs'
+      path: '/programs'
+      fullPath: '/programs'
+      preLoaderRoute: typeof ProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/young': {
+      id: '/young'
+      path: '/young'
+      fullPath: '/young'
+      preLoaderRoute: typeof YoungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  JuniorRoute: JuniorRoute,
+  ProgramsRoute: ProgramsRoute,
+  YoungRoute: YoungRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
