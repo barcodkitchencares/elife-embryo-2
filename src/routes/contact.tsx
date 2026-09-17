@@ -38,7 +38,7 @@ function Contact() {
       <PageHero
         eyebrow="Contact"
         title="Talk to the Embryo team"
-        subtitle="Admissions, trainer partnerships, school tie-ups and general questions."
+        description="Admissions, trainer partnerships, school tie-ups and general questions."
       />
       <Section>
         <div className="grid gap-5 sm:grid-cols-2">

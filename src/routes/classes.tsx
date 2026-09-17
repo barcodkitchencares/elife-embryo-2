@@ -35,7 +35,7 @@ function Classes() {
       <PageHero
         eyebrow="Online Classes"
         title="Learn live, from anywhere in Kerala"
-        subtitle="Join weekly online sessions or offline workshops led by practising trainers."
+        description="Join weekly online sessions or offline workshops led by practising trainers."
       />
       <Section>
         {isLoading ? (

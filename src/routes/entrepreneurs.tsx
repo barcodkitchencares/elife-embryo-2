@@ -34,7 +34,7 @@ function Entrepreneurs() {
       <PageHero
         eyebrow="Student Entrepreneurs"
         title="Young founders from Kerala"
-        subtitle="Students who learned a skill at Embryo and are now creating, selling and earning."
+        description="Students who learned a skill at Embryo and are now creating, selling and earning."
       />
       <Section>
         {isLoading ? (
